@@ -31,24 +31,15 @@ body {
   font-size: 14px;
 }
 
-.ms-btn-success {
-}
-
 .btn-success:hover,.ms-btn-success:hover {
   border: 0px;
   background-color: #33e592;
 }
 
-.ms-btn-warning {
-
-}
 
 .btn-warning:hover,.ms-btn-warning:hover {
   border: 0px;
   background-color: #f5d556;
-}
-
-.ms-btn-danger {
 }
 
 .btn-danger:hover,.ms-btn-danger:hover {
