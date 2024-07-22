@@ -1,13 +1,13 @@
 // -------- SCRIPT DEL GIOCO ----------//
 
-// creo un oggetto che definisce il numero di carte per ogni livello di difficoltà.
+// oggetto che definisce il numero di carte per ogni livello di difficoltà
 const levels = {
   easy: 8,
   medium: 12,
   hard: 16,
 };
 
-// Creo un array di emoji che verranno utilizzate come valori delle carte
+// Array di immagini che verranno utilizzate all'interno delle carte
 
 const images = [
     "/assets/img/cards/image1.png",
@@ -21,7 +21,7 @@ const images = [
 ];
 
 
-//------ VARIABILI USATE NEL JS -------//
+//------ VARIABILI -------//
 
 //memorizza il primo elemento selezionato
 let firstCard = null;
@@ -56,19 +56,22 @@ function startGame(level) {
 
   // Col ciclo foreach creo le carte, imposto i valori e aggiungo i click event
   cardValues.forEach((src) => {
-    const card = document.createElement("div");  // Creo le carte, imposto i valori e aggiungo i click event
+    const card = document.createElement("div");  
     card.classList.add("card");
     card.dataset.value = src;
   
     const frontImg = document.createElement('img');
     frontImg.src = src;
+    // Aggiungo una classe per distinguere il fronte
     frontImg.classList.add('front');
-    frontImg.classList.add('rounded'); // Aggiungi una classe per distinguere il fronte
+    frontImg.classList.add('rounded'); 
 
     const backImg = document.createElement('img');
-    backImg.src = "/assets/img/cards/question.jpg"; // Immagine del punto interrogativo
+    // Immagine del punto interrogativo
+    backImg.src = "/assets/img/cards/question.jpg";
+    // Aggiungo una classe per distinguere il retro
     backImg.classList.add('back');
-    backImg.classList.add('rounded'); // Aggiungi una classe per distinguere il retro
+    backImg.classList.add('rounded');
 
     card.appendChild(frontImg);
     card.appendChild(backImg);
@@ -126,7 +129,7 @@ function flipCard() {
   }
 
   secondCard = this;
-  // controllo che le carte siano una copia
+  // richiamo la funzione per controllare che le carte siano una copia
   checkForMatch();
 }
 
@@ -149,12 +152,13 @@ function checkForMatch() {
     secondCard.classList.add("matched");
     // ed incrementi il contatore di carte matchate
     matches += 2;
+    // richiamo la funzione per riprodurre il suono delle carte accoppiate
     playAudio("/assets/audio/matched.mp3")
     resetBoard();
     
     // e se la variabile matches è uguale alla lunghezza delle carte presenti nel DOM
     if (matches === document.querySelectorAll(".card").length) {
-      //compare un alert di vittoria dopo 5 secondi
+      //compare una modale di vittoria dopo 5 secondi
       setTimeout(() => {
         winAudio();
         const winModal = new bootstrap.Modal(document.getElementById('winModal'));
@@ -164,9 +168,10 @@ function checkForMatch() {
         winModal.show();
         }, 500);
     }
+
     // altrimenti se non c'è corrispondenza
   } else {
-    //si blocca il tabellone
+    // il tabellone è bloccato
     boardLocked = true;
     // aumenta il contatore degli errori
     errors++;
@@ -178,6 +183,7 @@ function checkForMatch() {
 }
 
 //------------ FUNZIONE PER RIAVVIARE IL GIOCO ------------//
+
 function reloadGame() {
     location.reload();
 }
@@ -197,20 +203,21 @@ function updateErrorCount() {
 }
 
 
-
-//------------------ SCRIPT AUDIO -----------------------//
-
+//------------------ FUNZIONI PER IL SUONO -----------------------//
+// Variabili
 const backgroundMusic = document.getElementById("background-music");
 const audioGame = document.getElementById("volume-control");
 const output = document.getElementById("value");
 const clickSound = document.getElementById("click-sound");
 const audioLevel = document.querySelectorAll(".level")
 
-// Per riprodurre una musica di sottofondo all'avvio della pagina
+// Riproduco una musica di sottofondo all'avvio della pagina
 document.addEventListener("DOMContentLoaded", () => {
-  const volume = 0.5; // Imposta il volume iniziale a 50%
+  // Imposto il volume iniziale al 50%
+  const volume = 0.5;
   backgroundMusic.volume = volume;
-  output.innerHTML = volume * 100; // Aggiorna l'output del volume a 50
+  // Aggiorna l'output del volume a 50%
+  output.innerHTML = volume * 100;
   const playBackgroundMusic = () => {
     backgroundMusic.play().catch((error) => {
       console.error(
@@ -219,9 +226,9 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
   };
-  // Prova a riprodurre la musica di sottofondo automaticamente
+  // riproduco la musica di sottofondo automaticamente
   playBackgroundMusic();
-  // Aggiungi un ascoltatore di eventi per garantire che la musica possa iniziare se l'autoplay fallisce
+  // Aggiungo un ascoltatore di eventi per garantire che la musica possa iniziare se l'autoplay fallisce
   document.body.addEventListener("click", playBackgroundMusic, { once: true });
 });
 
@@ -238,7 +245,7 @@ audioGame.addEventListener("input", (event) => {
   audioGame.style.background = color;
 });
 
-// funzione per riprodurre il suono al button del livello
+// per riprodurre il suono al button del livello
 document.querySelectorAll(".level").forEach((level) => {
   level.addEventListener("click", () => {
     clickSound.play().catch((error) => {
