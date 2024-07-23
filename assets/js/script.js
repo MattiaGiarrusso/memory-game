@@ -10,14 +10,14 @@ const levels = {
 // Array di immagini che verranno utilizzate all'interno delle carte
 
 const images = [
-    "/assets/img/cards/image1.png",
-    "/assets/img/cards/image2.png",
-    "/assets/img/cards/image3.png",
-    "/assets/img/cards/image4.png",
-    "/assets/img/cards/image5.png",
-    "/assets/img/cards/image6.png",
-    "/assets/img/cards/image7.png",
-    "/assets/img/cards/image8.png"
+    "assets/img/cards/image1.png",
+    "assets/img/cards/image2.png",
+    "assets/img/cards/image3.png",
+    "assets/img/cards/image4.png",
+    "assets/img/cards/image5.png",
+    "assets/img/cards/image6.png",
+    "assets/img/cards/image7.png",
+    "assets/img/cards/image8.png"
 ];
 
 
