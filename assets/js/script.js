@@ -68,7 +68,7 @@ function startGame(level) {
 
     const backImg = document.createElement('img');
     // Immagine del punto interrogativo
-    backImg.src = "/assets/img/cards/question.jpg";
+    backImg.src = "assets/img/cards/question.jpg";
     // Aggiungo una classe per distinguere il retro
     backImg.classList.add('back');
     backImg.classList.add('rounded');
@@ -111,7 +111,7 @@ function showAllCardsTemporarily() {
 
 //--------------- FUNZIONE CHE PARTE AL CLICK SULLE CARTE ----------------//
 function flipCard() {
-  playAudio("/assets/audio/mouse-click.mp3")
+  playAudio("assets/audio/mouse-click.mp3")
   //se il tabellone è bloccato o se questa carta cliccata è già stata selezionata o se è già stata matchata
   if (boardLocked || this === firstCard || this.classList.contains("matched"))
     return;
@@ -153,7 +153,7 @@ function checkForMatch() {
     // ed incrementi il contatore di carte matchate
     matches += 2;
     // richiamo la funzione per riprodurre il suono delle carte accoppiate
-    playAudio("/assets/audio/matched.mp3")
+    playAudio("assets/audio/matched.mp3")
     resetBoard();
     
     // e se la variabile matches è uguale alla lunghezza delle carte presenti nel DOM
@@ -176,7 +176,7 @@ function checkForMatch() {
     // aumenta il contatore degli errori
     errors++;
     updateErrorCount();
-    playAudio("/assets/audio/error.mp3")
+    playAudio("assets/audio/error.mp3")
     // si girano nuovamente le carte dopo 1 secondo
     setTimeout(unflipCards, 1000);
   }
@@ -270,5 +270,5 @@ function playAudio(sound) {
 // funzione per riprodurre il suono della modale dopo la vittoria
 function winAudio() {
     backgroundMusic.pause();
-    playAudio('/assets/audio/game-bonus.mp3');
+    playAudio('assets/audio/game-bonus.mp3');
 }
