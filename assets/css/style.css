@@ -6,7 +6,7 @@ body {
   font-weight: 400;
   font-style: normal;
   height: 100vh;
-  background-image: url('../assets/img/sfondo.png');
+  background-image: url('../img/sfondo.png');
   background-size: cover;
 }
 
