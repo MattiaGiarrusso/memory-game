@@ -12,7 +12,7 @@ Questo è un **Memory Game** creato utilizzando HTML5, CSS e JavaScript come par
 ## Tecnologie Utilizzate
 
 - **HTML5**: per la struttura del gioco.
-- **CSS**: per la stilizzazione e il layout responsive.
+- **CSS** e **Bootsrap**: per la stilizzazione e il layout responsive.
 - **JavaScript**: per la logica del gioco e l'interattività.
 
 ## Come Giocare
