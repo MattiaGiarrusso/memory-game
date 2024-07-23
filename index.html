@@ -15,46 +15,51 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <div id="game" class="row-container d-flex justify-content-center align-items-center">
-      <!-- colonna di sinistra -->
-      <div class="col-5 d-flex align-items-center justify-content-center flex-column gap-5 px-5 text-light">
-        <!-- logo del gioco -->
-        <div class="container-fluid">
-          <img class="logo" src="assets/img/title.png" alt="memorygame"/>
-        </div>
-        
-        <!-- controllo del volume -->
-        <div class="row-container d-flex justify-content-center align-items-center gap-3">
-          <div class="col-4">
-            <label for="volume-control" class="fw-bold text-white">Volume: <span id="value">0</span></label>
+
+    <div id="game" class="container d-flex justify-content-center align-items-center my-0">
+      <div class="row justify-content-center align-items-center w-100 py-4">
+        <!-- colonna di sinistra -->
+        <div class="col-12 col-lg-4 d-flex align-items-center flex-column gap-5 text-light">
+          <!-- logo del gioco -->
+          <div>
+            <img class="logo" src="assets/img/title.png" alt="memorygame"/>
           </div>
-          <div class="col-8">
-            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5" class="ms-audio"/>
-            <audio id="background-music" src="assets/audio/game-music.mp3" loop></audio>
+          
+          <!-- controllo del volume -->
+          <div class="row-container d-flex justify-content-center align-items-center gap-3">
+            <div class="col-4">
+              <label for="volume-control" class="fw-bold text-white">Volume: <span id="value">0</span></label>
+            </div>
+            <div class="col-8">
+              <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5" class="ms-audio"/>
+              <audio id="background-music" src="assets/audio/game-music.mp3" loop></audio>
+            </div>
+          </div>
+          
+          <!-- livelli di difficoltà -->
+          <div id="controls" class="d-flex">
+            <button class="btn btn-success ms-btn-success level" id="easy" onclick="startGame('easy')">
+              Facile
+            </button>
+            <button class="btn btn-warning text-white ms-btn-warning level" id="medium" onclick="startGame('medium')">
+              Medio
+            </button>
+            <button class="btn btn-danger ms-btn-danger level" id="hard" onclick="startGame('hard')">
+              Difficile
+            </button>
+            <audio id="click-sound" src="assets/audio/button-level.mp3"></audio>
           </div>
         </div>
-        
-        <!-- livelli di difficoltà -->
-        <div id="controls" class="d-flex">
-          <button class="btn btn-success ms-btn-success level" id="easy" onclick="startGame('easy')">
-            Facile
-          </button>
-          <button class="btn btn-warning text-white ms-btn-warning level" id="medium" onclick="startGame('medium')">
-            Medio
-          </button>
-          <button class="btn btn-danger ms-btn-danger level" id="hard" onclick="startGame('hard')">
-            Difficile
-          </button>
-          <audio id="click-sound" src="assets/audio/button-level.mp3"></audio>
-        </div>
+  
+        <!-- colonna di destra -->
+        <div class="col-12 col-lg-8 d-flex align-items-center justify-content-center flex-column">
+          <!-- errori nella partita -->
+          <div id="errors" class="error fw-bold text-white"></div>
+          <!-- tavola delle carte -->
+          <div id="board" class="d-flex align-items-center justify-content-center flex-wrap"></div>
+
       </div>
 
-      <!-- colonna di destra -->
-      <div class="col-7 d-flex align-items-center justify-content-center flex-column">
-        <!-- errori nella partita -->
-        <div id="errors" class="error fw-bold text-white"></div>
-        <!-- tavola delle carte -->
-        <div id="board" class="col-8"></div>
 
         <!-- modale -->
         <div class="modal fade" id="winModal" tabindex="-1" aria-labelledby="winModalLabel" aria-hidden="true">
@@ -71,8 +76,7 @@
             </div>
           </div>
         </div>
-
-      </div>
+        
     </div>
 
     <!-- script di js -->

@@ -5,7 +5,7 @@ body {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: normal;
-  height: 100vh;
+  height: 100%;
   background-image: url('../img/sfondo.png');
   background-size: cover;
 }
@@ -60,6 +60,7 @@ body {
 
 /* Board */
 #board {
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -166,4 +167,45 @@ body {
   height: 20px;
   background: whitesmoke;
   border-radius: 50%;
+}
+
+/* width */
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: black
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(59, 21, 171);
+  border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color:  rgb(86, 34, 243);
+}
+
+
+@media screen and (max-width: 560px) {
+
+  .logo {
+    width: 140px;
+  }
+
+  .card {
+    width: 120px;
+    height: 120px;
+    margin: 5px;
+    background-color: #7623c4;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
 }
